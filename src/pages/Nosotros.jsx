@@ -21,19 +21,14 @@ const values = [
 
 const team = [
   {
-    name: "Lic. Andrea Martínez",
-    role: "Directora General",
-    image: "https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?w=400&q=80",
+    name: "Lic. Jose Ivan Parra Parra",
+    role: "Director General",
+    image: "/ceo_img.jpeg",
   },
   {
-    name: "Lic. Carlos Hernández",
+    name: "Se busca",
     role: "Director Jurídico",
-    image: "https://images.unsplash.com/photo-1560250097-0b93528c311a?w=400&q=80",
-  },
-  {
-    name: "Arq. María Fernanda López",
-    role: "Coordinadora de Avalúos",
-    image: "https://images.unsplash.com/photo-1580489944761-15a19d654956?w=400&q=80",
+    image: "/wanted_poster.png",
   },
 ];
 
@@ -150,7 +145,7 @@ export default function Nosotros() {
             <div className="section-divider mt-4" />
           </div>
 
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
+          <div className="grid grid-cols-1 sm:grid-cols-2 gap-8 max-w-3xl mx-auto">
             {team.map((member, index) => (
               <div
                 key={index}

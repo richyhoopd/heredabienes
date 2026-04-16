@@ -153,11 +153,11 @@ export default function Footer() {
               </li>
               <li>
                 <a
-                  href="mailto:contacto@heredabienes.com.mx"
+                  href="mailto:heredabienes@outlook.com"
                   className="flex items-center gap-3 text-gray-400 hover:text-white text-sm font-body transition-colors"
                 >
                   <Mail size={16} className="flex-shrink-0 text-primary" />
-                  contacto@heredabienes.com.mx
+                  heredabienes@outlook.com
                 </a>
               </li>
             </ul>

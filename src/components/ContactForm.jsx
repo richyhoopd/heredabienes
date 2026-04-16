@@ -150,7 +150,7 @@ export default function ContactForm() {
                   </div>
                 </a>
                 <a
-                  href="mailto:contacto@heredum.mx"
+                  href="mailto:heredabienes@outlook.com"
                   className="flex items-start gap-4 group"
                 >
                   <div className="bg-primary-light p-2.5 rounded-xl group-hover:bg-primary/20 transition-colors">
@@ -158,7 +158,7 @@ export default function ContactForm() {
                   </div>
                   <div>
                     <p className="font-semibold text-gray-900 font-display text-sm">Correo</p>
-                    <p className="text-gray-500 font-body text-sm">contacto@heredum.mx</p>
+                    <p className="text-gray-500 font-body text-sm">heredabienes@outlook.com</p>
                   </div>
                 </a>
                 <div className="flex items-start gap-4">
