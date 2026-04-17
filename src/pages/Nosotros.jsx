@@ -27,7 +27,7 @@ const team = [
   },
   {
     name: "Se busca",
-    role: "Director Jurídico",
+    role: "Socia",
     image: "/wanted_poster.png",
   },
 ];
