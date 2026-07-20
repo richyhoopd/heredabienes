@@ -11,6 +11,7 @@ const serviceLinks = [
 ];
 
 const companyLinks = [
+  { label: "Propiedades", href: "/propiedades" },
   { label: "Nosotros", href: "/nosotros" },
   { label: "Proceso de trabajo", href: "/#proceso" },
   { label: "Testimonios", href: "/#testimonios" },

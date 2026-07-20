@@ -1,5 +1,6 @@
 import HeroCarousel from "@/components/HeroCarousel";
 import StatsBar from "@/components/StatsBar";
+import FeaturedProperties from "@/components/propiedades/FeaturedProperties";
 import PainPoints from "@/components/PainPoints";
 import SolutionsMap from "@/components/SolutionsMap";
 import ProcessSteps from "@/components/ProcessSteps";
@@ -14,6 +15,7 @@ export default function Home() {
     <main>
       <HeroCarousel />
       <StatsBar />
+      <FeaturedProperties limit={3} />
       <PainPoints />
       <SolutionsMap />
       <ProcessSteps />
