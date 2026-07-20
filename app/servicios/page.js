@@ -1,4 +1,4 @@
-import { Link } from "react-router-dom";
+import Link from "next/link";
 import {
   FileText,
   Shield,
@@ -11,7 +11,7 @@ import {
   ArrowRight,
   CheckCircle,
 } from "lucide-react";
-import ContactForm from "../components/ContactForm";
+import ContactForm from "@/components/ContactForm";
 
 const services = [
   {
@@ -128,6 +128,13 @@ const services = [
   },
 ];
 
+export const metadata = {
+  title: "Servicios | HEREDABIENES. Grupo Inmobiliario",
+  description:
+    "Sucesiones y herencias, regularización de propiedades, escrituración, compra y venta, asesoría patrimonial y trámites registrales en Jalisco.",
+  alternates: { canonical: "/servicios" },
+};
+
 export default function Servicios() {
   return (
     <main>
@@ -212,7 +219,7 @@ export default function Servicios() {
                     </div>
 
                     <Link
-                      to="/contacto"
+                      href="/contacto"
                       className="btn-primary"
                     >
                       Solicitar información

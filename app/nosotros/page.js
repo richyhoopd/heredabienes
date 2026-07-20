@@ -9,7 +9,7 @@ import {
   Handshake,
   Target,
 } from "lucide-react";
-import CTABanner from "../components/CTABanner";
+import CTABanner from "@/components/CTABanner";
 
 const values = [
   { icon: Heart, label: "Honestidad", color: "bg-red-50 text-red-500" },
@@ -38,6 +38,13 @@ const achievements = [
   { icon: Clock, number: "15 años", label: "De experiencia" },
   { icon: MapPin, number: "Jalisco", label: "Cobertura estatal" },
 ];
+
+export const metadata = {
+  title: "Nosotros | HEREDABIENES. Grupo Inmobiliario",
+  description:
+    "Conoce al equipo de HEREDABIENES Grupo Inmobiliario. Más de 500 familias atendidas en Guadalajara, Jalisco.",
+  alternates: { canonical: "/nosotros" },
+};
 
 export default function Nosotros() {
   return (

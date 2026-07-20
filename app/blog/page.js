@@ -65,6 +65,13 @@ const categoryColors = {
   Legal: "bg-red-100 text-red-700",
 };
 
+export const metadata = {
+  title: "Blog | HEREDABIENES. Grupo Inmobiliario",
+  description:
+    "Artículos sobre sucesiones, regularización de propiedades, escrituración y gestión patrimonial en Jalisco.",
+  alternates: { canonical: "/blog" },
+};
+
 export default function Blog() {
   return (
     <main>

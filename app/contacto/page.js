@@ -1,6 +1,13 @@
 import { MapPin } from "lucide-react";
-import ContactForm from "../components/ContactForm";
-import FAQSection from "../components/FAQSection";
+import ContactForm from "@/components/ContactForm";
+import FAQSection from "@/components/FAQSection";
+
+export const metadata = {
+  title: "Contacto | HEREDABIENES. Grupo Inmobiliario",
+  description:
+    "Agenda tu consulta gratuita. WhatsApp +52 1 33 1301 3253 · heredabienes@outlook.com · Guadalajara, Jalisco.",
+  alternates: { canonical: "/contacto" },
+};
 
 export default function Contacto() {
   return (
