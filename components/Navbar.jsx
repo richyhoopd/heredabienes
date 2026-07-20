@@ -1,19 +1,22 @@
+'use client';
+
 import { useState, useEffect } from "react";
-import { Link, useLocation } from "react-router-dom";
+import Link from "next/link";
+import { usePathname } from "next/navigation";
 import { Menu, X, MessageCircle } from "lucide-react";
 
 const navLinks = [
-  { to: "/", label: "Inicio" },
-  { to: "/servicios", label: "Servicios" },
-  { to: "/nosotros", label: "Nosotros" },
-  { to: "/blog", label: "Blog" },
-  { to: "/contacto", label: "Contacto" },
+  { href: "/", label: "Inicio" },
+  { href: "/servicios", label: "Servicios" },
+  { href: "/nosotros", label: "Nosotros" },
+  { href: "/blog", label: "Blog" },
+  { href: "/contacto", label: "Contacto" },
 ];
 
 export default function Navbar() {
   const [isOpen, setIsOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
-  const location = useLocation();
+  const pathname = usePathname();
 
   useEffect(() => {
     const handleScroll = () => {
@@ -25,7 +28,7 @@ export default function Navbar() {
 
   useEffect(() => {
     setIsOpen(false);
-  }, [location]);
+  }, [pathname]);
 
   return (
     <nav
@@ -38,7 +41,7 @@ export default function Navbar() {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex justify-between items-center h-20">
           {/* Logo */}
-          <Link to="/" className="flex items-center gap-2.5">
+          <Link href="/" className="flex items-center gap-2.5">
             <img
               src="/iconblue.png"
               alt="HEREDABIENES Logo"
@@ -58,10 +61,10 @@ export default function Navbar() {
           <div className="hidden lg:flex items-center gap-1">
             {navLinks.map((link) => (
               <Link
-                key={link.to}
-                to={link.to}
+                key={link.href}
+                href={link.href}
                 className={`px-4 py-2 rounded-lg text-sm font-medium font-body transition-all duration-200 ${
-                  location.pathname === link.to
+                  pathname === link.href
                     ? "text-primary bg-primary-light"
                     : "text-gray-600 hover:text-primary hover:bg-gray-50"
                 }`}
@@ -83,7 +86,7 @@ export default function Navbar() {
               WhatsApp
             </a>
             <Link
-              to="/contacto"
+              href="/contacto"
               className="bg-primary text-white px-6 py-2.5 rounded-full text-sm font-semibold hover:bg-primary-dark transition-all duration-200 hover:shadow-lg hover:shadow-primary/30 font-display"
             >
               Consulta Gratis
@@ -109,10 +112,10 @@ export default function Navbar() {
           <div className="flex flex-col gap-1 pt-2">
             {navLinks.map((link) => (
               <Link
-                key={link.to}
-                to={link.to}
+                key={link.href}
+                href={link.href}
                 className={`px-4 py-3 rounded-lg text-sm font-medium font-body transition-all duration-200 ${
-                  location.pathname === link.to
+                  pathname === link.href
                     ? "text-primary bg-primary-light"
                     : "text-gray-600 hover:text-primary hover:bg-gray-50"
                 }`}
@@ -131,7 +134,7 @@ export default function Navbar() {
                 WhatsApp
               </a>
               <Link
-                to="/contacto"
+                href="/contacto"
                 className="block mt-2 bg-primary text-white text-center px-6 py-3 rounded-full text-sm font-semibold hover:bg-primary-dark transition-all font-display"
               >
                 Consulta Gratis

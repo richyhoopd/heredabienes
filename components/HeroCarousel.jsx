@@ -1,5 +1,7 @@
+'use client';
+
 import { useState, useEffect, useCallback } from "react";
-import { Link } from "react-router-dom";
+import Link from "next/link";
 import { ChevronLeft, ChevronRight, ArrowRight, CheckCircle } from "lucide-react";
 
 const slides = [
@@ -139,14 +141,14 @@ export default function HeroCarousel() {
                 }`}
               >
                 <Link
-                  to={slide.ctaLink}
+                  href={slide.ctaLink}
                   className="bg-primary text-white px-8 py-4 rounded-full font-semibold hover:bg-primary-dark transition-all duration-200 inline-flex items-center gap-2 hover:shadow-lg hover:shadow-primary/30 text-lg font-display"
                 >
                   {slide.cta}
                   <ArrowRight size={20} />
                 </Link>
                 <Link
-                  to="/nosotros"
+                  href="/nosotros"
                   className="border-2 border-white/40 text-white px-8 py-4 rounded-full font-semibold hover:bg-white/10 transition-all duration-200 backdrop-blur-sm font-display"
                 >
                   Conócenos

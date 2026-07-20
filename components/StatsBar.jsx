@@ -1,3 +1,5 @@
+'use client';
+
 import { useEffect, useRef, useState } from "react";
 import { Home, Users, Clock, MapPin } from "lucide-react";
 
