@@ -1,22 +1,22 @@
-import { Link } from "react-router-dom";
+import Link from "next/link";
 import { MapPin, Phone, Mail, ArrowRight, MessageCircle, Heart } from "lucide-react";
 
 const serviceLinks = [
-  { label: "Sucesiones y Herencias", to: "/servicios" },
-  { label: "Regularización de Propiedades", to: "/servicios" },
-  { label: "Escrituración", to: "/servicios" },
-  { label: "Compra y Venta", to: "/servicios" },
-  { label: "Asesoría Patrimonial", to: "/servicios" },
-  { label: "Trámites Registrales", to: "/servicios" },
+  { label: "Sucesiones y Herencias", href: "/servicios" },
+  { label: "Regularización de Propiedades", href: "/servicios" },
+  { label: "Escrituración", href: "/servicios" },
+  { label: "Compra y Venta", href: "/servicios" },
+  { label: "Asesoría Patrimonial", href: "/servicios" },
+  { label: "Trámites Registrales", href: "/servicios" },
 ];
 
 const companyLinks = [
-  { label: "Nosotros", to: "/nosotros" },
-  { label: "Proceso de trabajo", to: "/#proceso" },
-  { label: "Testimonios", to: "/#testimonios" },
-  { label: "Preguntas frecuentes", to: "/#faq" },
-  { label: "Blog", to: "/blog" },
-  { label: "Contacto", to: "/contacto" },
+  { label: "Nosotros", href: "/nosotros" },
+  { label: "Proceso de trabajo", href: "/#proceso" },
+  { label: "Testimonios", href: "/#testimonios" },
+  { label: "Preguntas frecuentes", href: "/#faq" },
+  { label: "Blog", href: "/blog" },
+  { label: "Contacto", href: "/contacto" },
 ];
 
 export default function Footer() {
@@ -27,7 +27,7 @@ export default function Footer() {
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-10 lg:gap-12">
           {/* Col 1 - Logo */}
           <div className="sm:col-span-2 lg:col-span-1">
-            <Link to="/" className="inline-block mb-4">
+            <Link href="/" className="inline-block mb-4">
               <span className="text-2xl font-extrabold font-display text-white">
                 HeredaBienes.
               </span>
@@ -86,7 +86,7 @@ export default function Footer() {
               {serviceLinks.map((link) => (
                 <li key={link.label}>
                   <Link
-                    to={link.to}
+                    href={link.href}
                     className="text-gray-400 hover:text-primary text-sm font-body transition-colors inline-flex items-center gap-1 group"
                   >
                     <ArrowRight
@@ -109,7 +109,7 @@ export default function Footer() {
               {companyLinks.map((link) => (
                 <li key={link.label}>
                   <Link
-                    to={link.to}
+                    href={link.href}
                     className="text-gray-400 hover:text-primary text-sm font-body transition-colors inline-flex items-center gap-1 group"
                   >
                     <ArrowRight
@@ -162,7 +162,7 @@ export default function Footer() {
               </li>
             </ul>
             <Link
-              to="/contacto"
+              href="/contacto"
               className="mt-6 inline-flex items-center gap-2 bg-primary text-white px-6 py-2.5 rounded-full text-sm font-semibold hover:bg-primary-dark transition-all font-display"
             >
               Agenda consulta gratis

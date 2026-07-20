@@ -1,4 +1,4 @@
-import { Link } from "react-router-dom";
+import Link from "next/link";
 import { ArrowRight, MessageCircle } from "lucide-react";
 
 export default function CTABanner() {
@@ -40,7 +40,7 @@ export default function CTABanner() {
           {/* Right buttons */}
           <div className="flex flex-col sm:flex-row gap-4 lg:justify-end">
             <Link
-              to="/contacto"
+              href="/contacto"
               className="bg-white text-primary px-8 py-4 rounded-full font-semibold hover:bg-gray-50 transition-all duration-200 inline-flex items-center justify-center gap-2 text-lg shadow-lg shadow-black/10 font-display hover:shadow-xl"
             >
               Agenda tu consulta gratis

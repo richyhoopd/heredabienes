@@ -1,4 +1,4 @@
-import { Link } from "react-router-dom";
+import Link from "next/link";
 import { ArrowRight } from "lucide-react";
 
 const painPoints = [
@@ -63,7 +63,7 @@ export default function PainPoints() {
 
                 {/* CTA */}
                 <Link
-                  to="/servicios"
+                  href="/servicios"
                   className="inline-flex items-center gap-2 text-primary font-semibold text-sm hover:gap-3 transition-all duration-200 font-display"
                 >
                   Conoce más
