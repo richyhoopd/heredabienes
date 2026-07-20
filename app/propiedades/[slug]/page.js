@@ -205,6 +205,8 @@ export default async function PropiedadDetallePage({ params }) {
         whatsappUrl={whatsappUrl}
         fichaPdfUrl={property.fichaPdfUrl}
         precioTexto={precioTexto}
+        property={property}
+        urlPublica={urlPublica}
       />
     </main>
   );
