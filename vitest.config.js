@@ -13,7 +13,7 @@ export default defineConfig({
     environment: "jsdom",
     globals: true,
     setupFiles: ["./vitest.setup.js"],
-    include: ["{app,components}/**/*.test.{js,jsx}"],
+    include: ["{lib,app,components}/**/*.test.{js,jsx}"],
     exclude: ["node_modules", ".next"],
   },
 });
