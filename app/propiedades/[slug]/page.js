@@ -26,6 +26,7 @@ import FormasPago from '../../../components/propiedades/FormasPago';
 import PropertyMap from '../../../components/propiedades/PropertyMap';
 import AsesorCard from '../../../components/propiedades/AsesorCard';
 import RelatedProperties from '../../../components/propiedades/RelatedProperties';
+import CompartirRedes from '../../../components/propiedades/CompartirRedes';
 
 export const revalidate = 300;
 export const dynamicParams = true;
@@ -187,6 +188,13 @@ export default async function PropiedadDetallePage({ params }) {
 
           {/* 10. Asesor + CTA */}
           <AsesorCard property={property} whatsappUrl={whatsappUrl} />
+
+          {/* 10b. Compartir en redes */}
+          <CompartirRedes
+            url={urlPublica}
+            titulo={property.titulo}
+            precioTexto={precioTexto}
+          />
         </div>
       </div>
 
