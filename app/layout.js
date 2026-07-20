@@ -3,7 +3,7 @@ import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 
 export const metadata = {
-  metadataBase: new URL("https://heredabienes.com"),
+  metadataBase: new URL("https://www.heredabienes.com.mx"),
   title:
     "HEREDABIENES. Grupo Inmobiliario | Regularización de Propiedades, Sucesiones y Escrituración en Jalisco",
   description:
@@ -26,7 +26,7 @@ export const metadata = {
   ],
   authors: [{ name: "HEREDABIENES. Grupo Inmobiliario" }],
   robots: { index: true, follow: true },
-  alternates: { canonical: "https://heredabienes.com" },
+  alternates: { canonical: "https://www.heredabienes.com.mx" },
   manifest: "/manifest.json",
   icons: {
     icon: "/iconblue.png",
@@ -45,11 +45,11 @@ export const metadata = {
       "HEREDABIENES. Grupo Inmobiliario — Tu patrimonio, en manos confiables.",
     description:
       "Regularizamos, escrituramos y protegemos tu herencia en Jalisco. Más de 500 familias atendidas. Sucesiones, regularización de propiedades y asesoría patrimonial. Consulta gratuita.",
-    url: "https://heredabienes.com",
+    url: "https://www.heredabienes.com.mx",
     locale: "es_MX",
     images: [
       {
-        url: "https://heredabienes.com/og-image.png",
+        url: "https://www.heredabienes.com.mx/og-image.png",
         width: 1200,
         height: 630,
         alt: "HEREDABIENES Grupo Inmobiliario — Regularización de propiedades y sucesiones en Jalisco",
@@ -64,7 +64,7 @@ export const metadata = {
       "Regularizamos, escrituramos y protegemos tu herencia en Jalisco. Consulta gratuita. +500 familias atendidas.",
     images: [
       {
-        url: "https://heredabienes.com/og-image.png",
+        url: "https://www.heredabienes.com.mx/og-image.png",
         alt: "HEREDABIENES Grupo Inmobiliario",
       },
     ],
@@ -83,9 +83,9 @@ const jsonLd = {
   name: "HEREDABIENES. Grupo Inmobiliario",
   description:
     "Especialistas en regularización de propiedades heredadas, sucesiones, escrituración y gestión patrimonial en Jalisco, México.",
-  url: "https://heredabienes.com",
-  logo: "https://heredabienes.com/iconblue.png",
-  image: "https://heredabienes.com/og-image.png",
+  url: "https://www.heredabienes.com.mx",
+  logo: "https://www.heredabienes.com.mx/iconblue.png",
+  image: "https://www.heredabienes.com.mx/og-image.png",
   telephone: "+52-1-33-1301-3253",
   email: "heredabienes@outlook.com",
   address: {

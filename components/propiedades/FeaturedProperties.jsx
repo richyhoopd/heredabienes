@@ -1,13 +1,13 @@
 import Link from 'next/link';
 import { ArrowRight } from 'lucide-react';
 import { listFeaturedProperties } from '../../lib/api/properties';
-import { createServerSupabase } from '../../lib/supabase/server';
+import { createPublicSupabase } from '../../lib/supabase/server';
 import PropertyCard from './PropertyCard';
 
 export default async function FeaturedProperties({ limit = 3 }) {
   let propiedades = [];
   try {
-    const supabase = await createServerSupabase();
+    const supabase = createPublicSupabase();
     propiedades = await listFeaturedProperties(limit, supabase);
   } catch (error) {
     // El Home no debe caerse si Supabase no responde: simplemente no se muestra la sección.

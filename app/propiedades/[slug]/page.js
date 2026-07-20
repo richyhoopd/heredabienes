@@ -11,7 +11,7 @@ import {
   listProperties,
   listRelatedProperties,
 } from '../../../lib/api/properties';
-import { createServerSupabase } from '../../../lib/supabase/server';
+import { createPublicSupabase } from '../../../lib/supabase/server';
 import { formatPrecio } from '../../../lib/format';
 import { urlPublicaPropiedad, urlWhatsAppPropiedad } from '../../../lib/whatsapp';
 import PropertyGallery from '../../../components/propiedades/PropertyGallery';
@@ -32,7 +32,7 @@ export const dynamicParams = true;
 
 export async function generateStaticParams() {
   try {
-    const supabase = await createServerSupabase();
+    const supabase = createPublicSupabase();
     const propiedades = await listProperties({ client: supabase });
     return propiedades.map((p) => ({ slug: p.slug }));
   } catch (error) {
@@ -58,7 +58,7 @@ function descripcionCorta(property) {
 
 export async function generateMetadata({ params }) {
   const { slug } = await params;
-  const supabase = await createServerSupabase();
+  const supabase = createPublicSupabase();
   const property = await getPropertyBySlug(slug, supabase);
 
   if (!property) {
@@ -102,7 +102,7 @@ export async function generateMetadata({ params }) {
 
 export default async function PropiedadDetallePage({ params }) {
   const { slug } = await params;
-  const supabase = await createServerSupabase();
+  const supabase = createPublicSupabase();
   const property = await getPropertyBySlug(slug, supabase);
 
   if (!property || property.publicado === false) notFound();

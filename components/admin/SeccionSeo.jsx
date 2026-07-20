@@ -38,7 +38,7 @@ export default function SeccionSeo({ form, errores, onChange }) {
             {form.metaTitle || form.titulo || "Título de la propiedad"}
           </p>
           <p className="text-xs text-green-700">
-            heredabienes.com/propiedades/{form.slug || "…"}
+            heredabienes.com.mx/propiedades/{form.slug || "…"}
           </p>
           <p className="text-xs text-gray-600 line-clamp-2">
             {form.metaDescription ||

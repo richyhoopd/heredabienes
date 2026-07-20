@@ -1,6 +1,6 @@
 import { Suspense } from 'react';
 import { listProperties, listMunicipios } from '../../lib/api/properties';
-import { createServerSupabase } from '../../lib/supabase/server';
+import { createPublicSupabase } from '../../lib/supabase/server';
 import PropertyCard from '../../components/propiedades/PropertyCard';
 import PropertyFilters from '../../components/propiedades/PropertyFilters';
 import EmptyState from '../../components/propiedades/EmptyState';
@@ -17,6 +17,22 @@ export const metadata = {
     description:
       'Terrenos, casas y locales seleccionados en Zapopan, Guadalajara y la Zona Metropolitana.',
     type: 'website',
+    url: '/propiedades',
+    images: [
+      {
+        url: '/og-propiedades.jpg',
+        width: 1200,
+        height: 630,
+        alt: 'Vista aérea de una zona residencial en la Zona Metropolitana de Guadalajara',
+      },
+    ],
+  },
+  twitter: {
+    card: 'summary_large_image',
+    title: 'Propiedades en venta y renta en Jalisco | HeredaBienes',
+    description:
+      'Terrenos, casas y locales seleccionados en Zapopan, Guadalajara y la Zona Metropolitana.',
+    images: ['/og-propiedades.jpg'],
   },
 };
 
@@ -58,7 +74,7 @@ export default async function PropiedadesPage({ searchParams }) {
     orden: sp?.orden || undefined,
   };
 
-  const supabase = await createServerSupabase();
+  const supabase = createPublicSupabase();
 
   const [propiedades, municipios] = await Promise.all([
     cargarPropiedades(filtros, supabase),
