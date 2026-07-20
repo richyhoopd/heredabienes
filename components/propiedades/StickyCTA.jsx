@@ -1,10 +1,17 @@
 'use client';
 
 import { useEffect, useState } from 'react';
-import { Download, MessageCircle } from 'lucide-react';
+import { MessageCircle } from 'lucide-react';
+import DescargarFichaButton from './DescargarFichaButton';
 
-export default function StickyCTA({ whatsappUrl, fichaPdfUrl, precioTexto }) {
+// `property`/`urlPublica` son opcionales: si la página de detalle no los pasa
+// (wiring pendiente), se reconstruye un objeto mínimo a partir de
+// `fichaPdfUrl` para no cambiar el comportamiento actual (enlace directo o
+// nada). Cuando estén disponibles, la barra fija también podrá generar la
+// ficha al vuelo, igual que el botón del encabezado.
+export default function StickyCTA({ whatsappUrl, fichaPdfUrl, precioTexto, property, urlPublica }) {
   const [visible, setVisible] = useState(false);
+  const propiedadFicha = property || (fichaPdfUrl ? { fichaPdfUrl } : null);
 
   useEffect(() => {
     const onScroll = () => setVisible(window.scrollY > 400);
@@ -25,16 +32,8 @@ export default function StickyCTA({ whatsappUrl, fichaPdfUrl, precioTexto }) {
           <p className="truncate text-base font-extrabold text-primary font-display">{precioTexto}</p>
         </div>
 
-        {fichaPdfUrl ? (
-          <a
-            href={fichaPdfUrl}
-            target="_blank"
-            rel="noopener noreferrer"
-            aria-label="Descargar ficha PDF"
-            className="flex h-12 w-12 shrink-0 items-center justify-center rounded-full border-2 border-primary text-primary focus:outline-none focus-visible:ring-2 focus-visible:ring-primary"
-          >
-            <Download size={20} aria-hidden="true" />
-          </a>
+        {propiedadFicha ? (
+          <DescargarFichaButton property={propiedadFicha} urlPublica={urlPublica} variant="icon" />
         ) : null}
 
         <a

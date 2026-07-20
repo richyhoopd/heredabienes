@@ -1,8 +1,9 @@
-import { Download, MapPin, MessageCircle } from 'lucide-react';
+import { MapPin, MessageCircle } from 'lucide-react';
 import { formatPrecio } from '../../lib/format';
 import EstatusBadge from './EstatusBadge';
 import TipoBadge from './TipoBadge';
 import ShareButton from './ShareButton';
+import DescargarFichaButton from './DescargarFichaButton';
 
 export default function PropertyHeader({ property, urlPublica, whatsappUrl }) {
   const direccion = property.mostrarDireccionExacta
@@ -60,17 +61,7 @@ export default function PropertyHeader({ property, urlPublica, whatsappUrl }) {
           Preguntar por WhatsApp
         </a>
 
-        {property.fichaPdfUrl ? (
-          <a
-            href={property.fichaPdfUrl}
-            target="_blank"
-            rel="noopener noreferrer"
-            className="inline-flex items-center justify-center gap-2 rounded-full border-2 border-primary px-6 py-3 text-sm font-semibold font-display text-primary transition-colors hover:bg-primary hover:text-white focus:outline-none focus-visible:ring-2 focus-visible:ring-primary focus-visible:ring-offset-2"
-          >
-            <Download size={18} aria-hidden="true" />
-            Descargar ficha PDF
-          </a>
-        ) : null}
+        <DescargarFichaButton property={property} urlPublica={urlPublica} variant="full" />
 
         <ShareButton
           url={urlPublica}
