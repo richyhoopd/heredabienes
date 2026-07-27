@@ -2,14 +2,16 @@
 
 import { useState } from 'react';
 import { Check, Share2 } from 'lucide-react';
+import { registrarEvento } from '../../lib/api/eventos';
 
-export default function ShareButton({ url, titulo, texto = '', className = '' }) {
+export default function ShareButton({ url, titulo, texto = '', className = '', propertyId }) {
   const [copiado, setCopiado] = useState(false);
 
   const compartir = async () => {
     if (typeof navigator !== 'undefined' && navigator.share) {
       try {
         await navigator.share({ title: titulo, text: texto || titulo, url });
+        registrarEvento('compartir', { propertyId, detalle: 'nativo' });
         return;
       } catch (error) {
         if (error?.name === 'AbortError') return;
@@ -17,6 +19,7 @@ export default function ShareButton({ url, titulo, texto = '', className = '' })
     }
     try {
       await navigator.clipboard.writeText(url);
+      registrarEvento('compartir', { propertyId, detalle: 'copiar' });
       setCopiado(true);
       setTimeout(() => setCopiado(false), 2000);
     } catch (error) {

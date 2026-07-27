@@ -225,3 +225,9 @@ create policy "propiedades admin delete" on storage.objects
 -- tocar el CREATE TABLE de arriba. Ejemplo:
 --   alter table public.properties add column if not exists tour_url text;
 -- ============================================================================
+
+-- ============================================================================
+-- MIGRACIONES
+-- ============================================================================
+-- 2026-07-27: métricas de clicks + solicitudes de asesores.
+-- Contenido completo en migracion-eventos-solicitudes.sql (idempotente).

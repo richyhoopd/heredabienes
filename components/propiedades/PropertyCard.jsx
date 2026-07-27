@@ -1,9 +1,12 @@
+'use client';
+
 import Link from 'next/link';
 import Image from 'next/image';
 import { MapPin, Maximize2 } from 'lucide-react';
 import { formatPrecio, formatSuperficie } from '../../lib/format';
 import EstatusBadge from './EstatusBadge';
 import TipoBadge from './TipoBadge';
+import { registrarEvento } from '../../lib/api/eventos';
 
 export default function PropertyCard({ property, priority = false }) {
   if (!property) return null;
@@ -15,6 +18,7 @@ export default function PropertyCard({ property, priority = false }) {
   return (
     <Link
       href={`/propiedades/${property.slug}`}
+      onClick={() => registrarEvento('click_card', { propertyId: property.id })}
       className="card group block focus:outline-none focus-visible:ring-2 focus-visible:ring-primary focus-visible:ring-offset-2"
     >
       <div className="relative aspect-[4/3] w-full overflow-hidden bg-gray-soft">

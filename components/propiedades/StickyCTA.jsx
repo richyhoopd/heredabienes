@@ -3,6 +3,7 @@
 import { useEffect, useState } from 'react';
 import { MessageCircle } from 'lucide-react';
 import DescargarFichaButton from './DescargarFichaButton';
+import { registrarEvento } from '../../lib/api/eventos';
 
 // `property`/`urlPublica` son opcionales: si la página de detalle no los pasa
 // (wiring pendiente), se reconstruye un objeto mínimo a partir de
@@ -40,6 +41,7 @@ export default function StickyCTA({ whatsappUrl, fichaPdfUrl, precioTexto, prope
           href={whatsappUrl}
           target="_blank"
           rel="noopener noreferrer"
+          onClick={() => registrarEvento('whatsapp', { propertyId: property?.id, detalle: 'sticky' })}
           className="inline-flex shrink-0 items-center gap-2 rounded-full bg-green-600 px-5 py-3 text-sm font-semibold font-display text-white focus:outline-none focus-visible:ring-2 focus-visible:ring-green-600"
         >
           <MessageCircle size={18} aria-hidden="true" />

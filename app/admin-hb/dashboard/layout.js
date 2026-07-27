@@ -1,12 +1,18 @@
 'use client';
 
 import Link from 'next/link';
-import { useRouter } from 'next/navigation';
-import { LogOut, Building2, ExternalLink } from 'lucide-react';
+import { usePathname, useRouter } from 'next/navigation';
+import { LogOut, Building2, ExternalLink, BarChart3, Users } from 'lucide-react';
 import { signOut } from '@/lib/auth';
 
 export default function DashboardLayout({ children }) {
   const router = useRouter();
+  const pathname = usePathname();
+
+  const seccion = (href) =>
+    pathname === href
+      ? 'text-primary font-semibold'
+      : 'text-gray-500 hover:text-primary';
 
   const salir = async () => {
     try {
@@ -22,13 +28,29 @@ export default function DashboardLayout({ children }) {
     <div className="min-h-screen bg-gray-soft">
       <header className="bg-white border-b border-gray-100 sticky top-0 z-40">
         <div className="max-w-7xl mx-auto px-4 h-16 flex items-center justify-between">
-          <Link
-            href="/admin-hb/dashboard"
-            className="flex items-center gap-2 font-display font-bold text-dark"
-          >
-            <Building2 className="w-5 h-5 text-primary" />
-            Propiedades
-          </Link>
+          <nav className="flex items-center gap-5">
+            <Link
+              href="/admin-hb/dashboard"
+              className={`flex items-center gap-2 font-display text-sm ${seccion('/admin-hb/dashboard')}`}
+            >
+              <Building2 className="w-4 h-4" />
+              Propiedades
+            </Link>
+            <Link
+              href="/admin-hb/dashboard/metricas"
+              className={`flex items-center gap-2 font-display text-sm ${seccion('/admin-hb/dashboard/metricas')}`}
+            >
+              <BarChart3 className="w-4 h-4" />
+              Métricas
+            </Link>
+            <Link
+              href="/admin-hb/dashboard/solicitudes"
+              className={`flex items-center gap-2 font-display text-sm ${seccion('/admin-hb/dashboard/solicitudes')}`}
+            >
+              <Users className="w-4 h-4" />
+              Solicitudes
+            </Link>
+          </nav>
           <div className="flex items-center gap-4">
             <Link
               href="/propiedades"

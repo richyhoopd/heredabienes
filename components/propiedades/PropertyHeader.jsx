@@ -4,6 +4,7 @@ import EstatusBadge from './EstatusBadge';
 import TipoBadge from './TipoBadge';
 import ShareButton from './ShareButton';
 import DescargarFichaButton from './DescargarFichaButton';
+import TrackedLink from '../analytics/TrackedLink';
 
 export default function PropertyHeader({ property, urlPublica, whatsappUrl }) {
   const direccion = property.mostrarDireccionExacta
@@ -51,7 +52,10 @@ export default function PropertyHeader({ property, urlPublica, whatsappUrl }) {
 
       {/* Acciones: en móvil se repiten en la StickyCTA del fondo */}
       <div className="flex flex-col gap-3 sm:flex-row sm:flex-wrap">
-        <a
+        <TrackedLink
+          evento="whatsapp"
+          propertyId={property.id}
+          detalle="header"
           href={whatsappUrl}
           target="_blank"
           rel="noopener noreferrer"
@@ -59,7 +63,7 @@ export default function PropertyHeader({ property, urlPublica, whatsappUrl }) {
         >
           <MessageCircle size={18} aria-hidden="true" />
           Preguntar por WhatsApp
-        </a>
+        </TrackedLink>
 
         <DescargarFichaButton property={property} urlPublica={urlPublica} variant="full" />
 
@@ -67,6 +71,7 @@ export default function PropertyHeader({ property, urlPublica, whatsappUrl }) {
           url={urlPublica}
           titulo={property.titulo}
           texto={property.gancho || property.titulo}
+          propertyId={property.id}
         />
       </div>
     </header>

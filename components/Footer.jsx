@@ -17,6 +17,7 @@ const companyLinks = [
   { label: "Testimonios", href: "/#testimonios" },
   { label: "Preguntas frecuentes", href: "/#faq" },
   { label: "Blog", href: "/blog" },
+  { label: "Trabaja con nosotros", href: "/trabaja-con-nosotros" },
   { label: "Contacto", href: "/contacto" },
 ];
 

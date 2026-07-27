@@ -27,6 +27,7 @@ import PropertyMap from '../../../components/propiedades/PropertyMap';
 import AsesorCard from '../../../components/propiedades/AsesorCard';
 import RelatedProperties from '../../../components/propiedades/RelatedProperties';
 import CompartirRedes from '../../../components/propiedades/CompartirRedes';
+import RegistrarVista from '../../../components/analytics/RegistrarVista';
 
 export const revalidate = 300;
 export const dynamicParams = true;
@@ -131,6 +132,7 @@ export default async function PropiedadDetallePage({ params }) {
 
   return (
     <main className="bg-white pb-24 lg:pb-0">
+      <RegistrarVista propertyId={property.id} />
       {/* 1. Galería */}
       <div className="sm:mx-auto sm:max-w-5xl sm:px-6 sm:pt-8 lg:px-8">
         <PropertyGallery
@@ -194,6 +196,7 @@ export default async function PropiedadDetallePage({ params }) {
             url={urlPublica}
             titulo={property.titulo}
             precioTexto={precioTexto}
+            propertyId={property.id}
           />
         </div>
       </div>

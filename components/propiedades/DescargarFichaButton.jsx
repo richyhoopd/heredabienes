@@ -2,6 +2,7 @@
 
 import { useState } from 'react';
 import { AlertTriangle, Download, Loader2 } from 'lucide-react';
+import { registrarEvento } from '../../lib/api/eventos';
 
 // Botón "Descargar ficha": si la propiedad ya tiene un PDF subido a mano
 // (property.fichaPdfUrl), enlaza directo a ese archivo (comportamiento
@@ -11,12 +12,16 @@ import { AlertTriangle, Download, Loader2 } from 'lucide-react';
 export default function DescargarFichaButton({ property, urlPublica, variant = 'full' }) {
   const [estado, setEstado] = useState('idle'); // idle | generando | error
 
+  const registrarDescarga = (detalle) =>
+    registrarEvento('descarga_ficha', { propertyId: property?.id, detalle });
+
   if (property?.fichaPdfUrl) {
     return variant === 'icon' ? (
       <a
         href={property.fichaPdfUrl}
         target="_blank"
         rel="noopener noreferrer"
+        onClick={() => registrarDescarga('pdf_subido')}
         aria-label="Descargar ficha PDF"
         className="flex h-12 w-12 shrink-0 items-center justify-center rounded-full border-2 border-primary text-primary focus:outline-none focus-visible:ring-2 focus-visible:ring-primary"
       >
@@ -27,6 +32,7 @@ export default function DescargarFichaButton({ property, urlPublica, variant = '
         href={property.fichaPdfUrl}
         target="_blank"
         rel="noopener noreferrer"
+        onClick={() => registrarDescarga('pdf_subido')}
         className="inline-flex items-center justify-center gap-2 rounded-full border-2 border-primary px-6 py-3 text-sm font-semibold font-display text-primary transition-colors hover:bg-primary hover:text-white focus:outline-none focus-visible:ring-2 focus-visible:ring-primary focus-visible:ring-offset-2"
       >
         <Download size={18} aria-hidden="true" />
@@ -41,6 +47,7 @@ export default function DescargarFichaButton({ property, urlPublica, variant = '
     try {
       const { descargarFichaPdf } = await import('../../lib/pdf/generarFichaPdf');
       await descargarFichaPdf(property, urlPublica);
+      registrarDescarga('generado');
       setEstado('idle');
     } catch (error) {
       setEstado('error');

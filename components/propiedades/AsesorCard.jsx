@@ -1,5 +1,6 @@
 import { Mail, MessageCircle, Phone, UserRound } from 'lucide-react';
 import { EMAIL_FALLBACK, WHATSAPP_FALLBACK, telefonoAWhatsApp } from '../../lib/whatsapp';
+import TrackedLink from '../analytics/TrackedLink';
 
 export default function AsesorCard({ property, whatsappUrl }) {
   const nombre = property?.asesorNombre || 'Equipo HeredaBienes';
@@ -33,7 +34,10 @@ export default function AsesorCard({ property, whatsappUrl }) {
         </p>
 
         <div className="flex flex-col gap-3">
-          <a
+          <TrackedLink
+            evento="whatsapp"
+            propertyId={property?.id}
+            detalle="asesor"
             href={whatsappUrl}
             target="_blank"
             rel="noopener noreferrer"
@@ -41,21 +45,25 @@ export default function AsesorCard({ property, whatsappUrl }) {
           >
             <MessageCircle size={18} aria-hidden="true" />
             Escribir por WhatsApp
-          </a>
-          <a
+          </TrackedLink>
+          <TrackedLink
+            evento="llamada"
+            propertyId={property?.id}
             href={`tel:+${telefono}`}
             className="inline-flex items-center justify-center gap-2 rounded-full border-2 border-white/30 px-6 py-3.5 text-sm font-semibold font-display text-white transition-colors hover:bg-white/10 focus:outline-none focus-visible:ring-2 focus-visible:ring-white"
           >
             <Phone size={18} aria-hidden="true" />
             Llamar ahora
-          </a>
-          <a
+          </TrackedLink>
+          <TrackedLink
+            evento="email"
+            propertyId={property?.id}
             href={`mailto:${email}?subject=${encodeURIComponent(`Interés en: ${property?.titulo ?? 'propiedad'}`)}`}
             className="inline-flex items-center justify-center gap-2 rounded-full px-6 py-3 text-sm font-semibold font-display text-gray-300 transition-colors hover:text-primary focus:outline-none focus-visible:ring-2 focus-visible:ring-white"
           >
             <Mail size={18} aria-hidden="true" />
             {email}
-          </a>
+          </TrackedLink>
         </div>
       </div>
     </section>

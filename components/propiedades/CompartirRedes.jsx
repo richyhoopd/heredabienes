@@ -2,6 +2,7 @@
 
 import { useState } from 'react';
 import { Check, Copy, MessageCircle } from 'lucide-react';
+import { registrarEvento } from '../../lib/api/eventos';
 
 // lucide-react 1.x ya no incluye iconos de marca, así que los logos van inline.
 function IconoFacebook(props) {
@@ -29,7 +30,7 @@ function IconoX(props) {
 // Instagram y TikTok no aparecen: no tienen URL de compartir desde web (su API
 // exige app nativa). Para esas, la ruta real es copiar el link o descargar la
 // imagen, y para eso está el botón de copiar.
-export default function CompartirRedes({ url, titulo, precioTexto }) {
+export default function CompartirRedes({ url, titulo, precioTexto, propertyId }) {
   const [copiado, setCopiado] = useState(false);
   const [error, setError] = useState(false);
 
@@ -63,6 +64,7 @@ export default function CompartirRedes({ url, titulo, precioTexto }) {
   async function copiar() {
     try {
       await navigator.clipboard.writeText(url);
+      registrarEvento('compartir', { propertyId, detalle: 'copiar' });
       setCopiado(true);
       setError(false);
       setTimeout(() => setCopiado(false), 2000);
@@ -88,6 +90,7 @@ export default function CompartirRedes({ url, titulo, precioTexto }) {
             href={href}
             target="_blank"
             rel="noopener noreferrer"
+            onClick={() => registrarEvento('compartir', { propertyId, detalle: nombre.toLowerCase() })}
             aria-label={`Compartir en ${nombre}`}
             className={`inline-flex min-h-[44px] items-center gap-2 rounded-full px-5 py-2.5 font-display text-sm font-semibold transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary focus-visible:ring-offset-2 ${clase}`}
           >
