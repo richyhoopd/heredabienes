@@ -34,6 +34,7 @@ export const metadata = {
     apple: "/iconblue.png",
   },
   other: {
+    "facebook-domain-verification": "78mts3ejeipm4nd0wxya20riaazdlj",
     "geo.region": "MX-JAL",
     "geo.placename": "Guadalajara, Jalisco, México",
     language: "es",
